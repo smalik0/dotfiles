@@ -1,0 +1,47 @@
+# this is .mybashrc
+# make your own magic here
+#[ -d /opt/sfw/bin ] && PATH=$PATH:/opt/sfw/bin
+[ -d /usr/cuda/bin ] && PATH=$PATH:/usr/cuda/bin
+export CLASSPATH="$CLASSPATH:.:/home/phatalsk/public/misc/junit-4.12.jar:/home/phatalsk/public/misc/hamcrest-core-1.3.jar"
+alias javat="java org.junit.runner.JUnitCore"
+#alias sqlplus='/app/oracle/product/10.2.0/client_1/bin/sqlplus'
+export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
+export CLICOLOR=1
+export LSCOLORS=ExFxBxDxCxegedabagacad
+export MANPAGER="col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -"
+alias ls='ls -GFh --color=auto'
+alias ll="ls -l"
+alias la="ls -a"
+set colored-stats on
+export TERM="screen-256color"
+export LD_LIBRARY_PATH="$HOME/lib:/lib:/lib64"
+export PATH="$HOME/bin:$HOME/local/bin:$HOME/.local:$HOME/.local/bin:$PATH"
+export PATH="$PATH:$HOME/.local/lib/python2.6"
+export PYTHONPATH="$PYTHONPATH:$HOME/.local/lib/python2.6/site-packages"
+#alias xcode='/Applications/Xcode.app/Contents/MacOS/Xcode'
+# end
+# bash
+# No ttyctl, so we need to save and then restore terminal settings
+vim() {
+    # osx users, use stty -g
+    local STTYOPTS="$(stty --save)"
+    stty -ixon
+    command vim "$@"
+    stty "$STTYOPTS"
+}
+alias vim="vim -p"
+alias python="python2.7"
+powerline-daemon -q -f
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+. $HOME/.local/lib/python2.6/site-packages/powerline/bindings/bash/powerline.sh
+
+cd
+tmux() {
+   if (( $# != 0))
+   then
+      command tmux "$@"
+   else
+      command tmux -q a || tmux new
+   fi
+}
