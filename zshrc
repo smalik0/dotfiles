@@ -91,7 +91,7 @@ source $ZSH/oh-my-zsh.sh
 export SHELL="/bin/zsh"
 export JUNIT_HOME="$HOME/.java"
 export GOPATH="$HOME/.go"
-export PATH="$PATH:$JUNIT_HOME:/usr/local/bin:$HOME/.lc3:$GOPATH/bin"
+export PATH="$PATH:$JUNIT_HOME:/usr/local/bin:$HOME/.lc3:$GOPATH/bin:$HOME/.iterm2:."
 export CLASSPATH="$CLASSPATH:$JUNIT_HOME/junit-4.12.jar:$JUNIT_HOME/hamcrest-core-1.3.jar:$JUNIT_HOME/vimdoclet-1.2.jar:."
 alias vim="mvim -v -p"
 alias vimdiff="mvim -d -v"
