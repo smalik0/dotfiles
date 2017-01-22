@@ -54,7 +54,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions tumult vi-mode osx battery bd)
+plugins=(git zsh-autosuggestions tumult vi-mode osx battery bd vundle common-aliases zsh_reload cp command-not-found brew)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -231,4 +231,8 @@ cecho() {
   echo "${2}${1}${reset}"
   return
 }
+
+weather() { curl wttr.in/"$1"; }
+alias plz="fc -l -1 | cut -d' ' -f2- | xargs sudo"
+alias myip="curl icanhazip.com"
 . $HOME/.zsh/plugins/bd/bd.zsh
